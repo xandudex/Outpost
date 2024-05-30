@@ -46,14 +46,15 @@ namespace Game.Player
 
             Vector2 iv = moveAction.action.ReadValue<Vector2>();
             Vector3 speedVector = (forward * iv.y + right * iv.x) * speedScale;
-
+            speedVector.y += rb.linearVelocity.y;
             rb.linearVelocity = speedVector;
 
             float magnitude = speedVector.magnitude;
 
             if (magnitude > 0.01f)
             {
-                Quaternion quaternion = Quaternion.LookRotation(speedVector);
+                Vector3 lookDirection = new Vector3(speedVector.x, 0, speedVector.z);
+                Quaternion quaternion = Quaternion.LookRotation(lookDirection);
                 quaternion = Quaternion.Slerp(transform.rotation, quaternion, magnitude * turnSpeed * Time.deltaTime);
                 rb.MoveRotation(quaternion);
             }

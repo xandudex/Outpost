@@ -15,6 +15,12 @@ namespace Game.Player
         {
             camera.Target.TrackingTarget = player.transform;
         }
+        private void OnValidate()
+        {
+            if (camera == null || player == null) return;
 
+            camera.Target.TrackingTarget = player.transform;
+            camera.Target.LookAtTarget = player.transform;
+        }
     }
 }
