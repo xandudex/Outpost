@@ -12,9 +12,9 @@ namespace MysteryFoxes.Outpost
         T[] values;
 
         [SerializeField]
-        Pair<Item, int>[] cost;
+        Pair<ItemSO, int>[] cost;
 
         public T[] Values => values.ToArray();
-        public Pair<Item, int>[] Cost => cost.ToArray();
+        public Pair<ItemSO, int>[] Cost => cost.ToArray();
     }
 }
