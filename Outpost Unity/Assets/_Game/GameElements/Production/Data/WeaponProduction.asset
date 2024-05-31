@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: WeaponProduction
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
+  price:
+  - Key: {fileID: 11400000, guid: ee49a2e3fcd364c4c8539ea4cbce8efb, type: 2}
+    Value: 10

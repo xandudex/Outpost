@@ -1,18 +1,14 @@
-﻿using UnityEngine;
+﻿using MysteryFoxes.Outpost.Interactable;
+using UnityEngine;
 
 namespace MysteryFoxes.Outpost.Items
 {
     [CreateAssetMenu(fileName = "Item Data", menuName = "Outpost/Data/Item")]
-    internal class ItemSO : ScriptableObject
+    internal class ItemSO : EntitySO
     {
-        [SerializeField]
-        ItemObject prefab;
-
         [SerializeField]
         Sprite icon;
 
-        public string Id => name;
-        public ItemObject Prefab => prefab;
         public Sprite Icon => icon;
     }
 }

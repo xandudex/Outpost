@@ -19,8 +19,9 @@ namespace MysteryFoxes.Outpost.Vending
 
         public VendingMachineObject CreateObject(VendingMachine vendingMachine)
         {
-            return scope.Container.CreateScope(x => x.RegisterInstance(vendingMachine))
-                            .Instantiate(vendingMachine.Data.Prefab);
+            return scope.CreateChild(x => x.RegisterInstance(vendingMachine)).Container
+                        .Instantiate(vendingMachine.Data.Prefab)
+                        .GetComponent<VendingMachineObject>();
         }
     }
 }

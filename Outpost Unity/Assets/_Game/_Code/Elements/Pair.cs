@@ -1,5 +1,8 @@
-﻿namespace MysteryFoxes.Outpost
+﻿using System;
+
+namespace MysteryFoxes.Outpost
 {
+    [Serializable]
     internal struct Pair<T, K>
     {
         public T Key;

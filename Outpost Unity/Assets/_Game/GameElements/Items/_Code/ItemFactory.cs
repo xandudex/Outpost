@@ -11,7 +11,7 @@ namespace MysteryFoxes.Outpost.Items
             this.scope = scope;
         }
 
-        public Item Create(ItemSO itemData, int count = 1)
+        public Item Create(ItemSO itemData)
         {
             Item.Builder builder = new Item.Builder(itemData);
             return builder.Build();
@@ -19,10 +19,9 @@ namespace MysteryFoxes.Outpost.Items
 
         public ItemObject CreateObject(Item item)
         {
-            return scope.Container.CreateScope(x => x.RegisterInstance(item))
-                            .Instantiate(item.Data.Prefab);
+            return scope.CreateChild(x => x.RegisterInstance(item)).Container
+                        .Instantiate(item.Data.Prefab)
+                        .GetComponent<ItemObject>();
         }
-
-
     }
 }

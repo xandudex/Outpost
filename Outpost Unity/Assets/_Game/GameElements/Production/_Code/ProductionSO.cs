@@ -3,11 +3,7 @@
 namespace MysteryFoxes.Outpost.Production
 {
     [CreateAssetMenu(fileName = "Production Data", menuName = "Outpost/Data/Production")]
-    internal class ProductionSO : ScriptableObject
+    internal class ProductionSO : ConstructableSO
     {
-        [SerializeField]
-        ProductionObject prefab;
-
-        public ProductionObject Prefab => prefab;
     }
 }

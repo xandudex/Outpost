@@ -1,9 +1,10 @@
+using MysteryFoxes.Outpost.Interactable;
 using UnityEngine;
 using VContainer;
 
 namespace Game.Player
 {
-    internal class Player : MonoBehaviour
+    internal class Player : MonoBehaviour, IConstructor
     {
 
         [Inject]

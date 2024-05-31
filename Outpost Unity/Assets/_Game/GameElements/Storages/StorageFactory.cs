@@ -21,7 +21,7 @@ namespace MysteryFoxes.Outpost.Storages
 
         public StorageObject CreateObject(Storage storage, StorageObject prefab)
         {
-            return scope.Container.CreateScope(x => x.RegisterInstance(storage))
+            return scope.CreateChild(x => x.RegisterInstance(storage)).Container
                             .Instantiate(prefab);
         }
     }

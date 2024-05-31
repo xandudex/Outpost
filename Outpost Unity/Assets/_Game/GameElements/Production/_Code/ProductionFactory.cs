@@ -20,7 +20,8 @@ namespace MysteryFoxes.Outpost.Production
         public ProductionObject CreateObject(Production production)
         {
             return scope.CreateChild(x => x.RegisterInstance(production)).Container
-                        .Instantiate(production.Data.Prefab);
+                        .Instantiate(production.Data.Prefab)
+                        .GetComponent<ProductionObject>();
         }
     }
 }
