@@ -5,10 +5,10 @@ namespace MysteryFoxes.Outpost.Items
 {
     internal class ItemFactory
     {
-        Container container;
-        public ItemFactory(Container container)
+        LifetimeScope scope;
+        public ItemFactory(LifetimeScope scope)
         {
-            this.container = container;
+            this.scope = scope;
         }
 
         public Item Create(ItemSO itemData, int count = 1)
@@ -19,13 +19,8 @@ namespace MysteryFoxes.Outpost.Items
 
         public ItemObject CreateObject(Item item)
         {
-            return container.CreateScope(Builder)
+            return scope.Container.CreateScope(x => x.RegisterInstance(item))
                             .Instantiate(item.Data.Prefab);
-
-            void Builder(IContainerBuilder builder)
-            {
-                builder.RegisterInstance(item);
-            }
         }
 
 

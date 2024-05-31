@@ -5,11 +5,11 @@ namespace MysteryFoxes.Outpost.Vending
 {
     internal class VendingMachineFactory
     {
-        readonly Container container;
+        readonly LifetimeScope scope;
 
-        public VendingMachineFactory(Container container)
+        public VendingMachineFactory(LifetimeScope scope)
         {
-            this.container = container;
+            this.scope = scope;
         }
 
         public VendingMachine Create(VendingMachineSO data)
@@ -19,13 +19,8 @@ namespace MysteryFoxes.Outpost.Vending
 
         public VendingMachineObject CreateObject(VendingMachine vendingMachine)
         {
-            return container.CreateScope(Builder)
+            return scope.Container.CreateScope(x => x.RegisterInstance(vendingMachine))
                             .Instantiate(vendingMachine.Data.Prefab);
-
-            void Builder(IContainerBuilder builder)
-            {
-                builder.RegisterInstance(vendingMachine);
-            }
         }
     }
 }

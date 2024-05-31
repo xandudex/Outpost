@@ -1,26 +1,18 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using VContainer;
 
 namespace Game.Player
 {
     public class PlayerFollowCamera : MonoBehaviour
     {
         [SerializeField]
-        Player player;
-
-        [SerializeField]
         CinemachineCamera camera;
 
-        void Awake()
+        [Inject]
+        void Construct(Player player)
         {
             camera.Target.TrackingTarget = player.transform;
-        }
-        private void OnValidate()
-        {
-            if (camera == null || player == null) return;
-
-            camera.Target.TrackingTarget = player.transform;
-            camera.Target.LookAtTarget = player.transform;
         }
     }
 }

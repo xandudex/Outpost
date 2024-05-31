@@ -5,11 +5,10 @@ namespace MysteryFoxes.Outpost.Production
 {
     internal class ProductionFactory
     {
-        readonly Container container;
-
-        public ProductionFactory(Container container)
+        readonly LifetimeScope scope;
+        public ProductionFactory(LifetimeScope scope)
         {
-            this.container = container;
+            this.scope = scope;
         }
 
         public Production Create(ProductionSO productionData)
@@ -20,13 +19,8 @@ namespace MysteryFoxes.Outpost.Production
 
         public ProductionObject CreateObject(Production production)
         {
-            return container.CreateScope(Builder)
-                            .Instantiate(production.Data.Prefab);
-
-            void Builder(IContainerBuilder builder)
-            {
-                builder.RegisterInstance(production);
-            }
+            return scope.CreateChild(x => x.RegisterInstance(production)).Container
+                        .Instantiate(production.Data.Prefab);
         }
     }
 }
