@@ -1,17 +1,16 @@
-using MysteryFoxes.Outpost.Interactable;
-using UnityEngine;
-using VContainer;
+using MysteryFoxes.Outpost.Storages;
 
-namespace Game.Player
+namespace MysteryFoxes.Outpost.Player
 {
-    internal class Player : MonoBehaviour, IConstructor
+    internal class Player
     {
+        readonly PlayerSO data;
 
-        [Inject]
-        void Construct(string str)
+        public Player(PlayerSO data, Storage wallet, Storage hands)
         {
-            Debug.Log(str);
+            this.data = data;
         }
 
+        public PlayerSO Data => data;
     }
 }

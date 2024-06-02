@@ -8,10 +8,10 @@ namespace MysteryFoxes.Outpost
     {
         T[] values;
         int currentIndex;
-        Pair<Item, int>[] cost;
+        Pair<ItemSO, int>[] cost;
         ReactiveProperty<T> value = new();
 
-        public Upgrade(T[] values, Pair<Item, int>[] cost, int initialIndex)
+        public Upgrade(T[] values, Pair<ItemSO, int>[] cost, int initialIndex)
         {
             this.values = values;
             this.cost = cost;
@@ -20,7 +20,7 @@ namespace MysteryFoxes.Outpost
 
         public T[] Values => values.ToArray();
         public int CurrentIndex => currentIndex;
-        public Pair<Item, int>[] Cost => cost.ToArray();
+        public Pair<ItemSO, int>[] Cost => cost.ToArray();
         public ReadOnlyReactiveProperty<T> Value => value;
         public int Count => values.Length;
 
