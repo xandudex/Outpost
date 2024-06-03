@@ -1,4 +1,4 @@
-﻿namespace MysteryFoxes.Outpost.Interactable
+﻿namespace MysteryFoxes.Outpost
 {
     public interface IZoneDetectable { }
 }

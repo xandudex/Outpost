@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MysteryFoxes.Outpost
 {
-    internal class Upgrade<T>
+    internal class Upgrade<T> : IEntity
     {
         T[] values;
         int currentIndex;

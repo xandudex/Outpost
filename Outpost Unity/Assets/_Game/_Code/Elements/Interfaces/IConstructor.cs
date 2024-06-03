@@ -1,4 +1,4 @@
-﻿namespace MysteryFoxes.Outpost.Interactable
+﻿namespace MysteryFoxes.Outpost
 {
     internal interface IConstructor : IZoneDetectable
     {

@@ -1,36 +1,37 @@
-﻿using MysteryFoxes.Outpost.Production;
+﻿using MessagePipe;
+using MysteryFoxes.Outpost.Production;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using VContainer.Unity;
 
 namespace MysteryFoxes.Outpost.Services
 {
-    internal class ProductionService : IProductionService, IInitializable
+    internal class ProductionService : IProductionService, IDisposable
     {
         List<Production.Production> productions = new();
 
+        IDisposable disposable;
+
         readonly ProductionFactory factory;
 
-        public ProductionService(ProductionFactory factory)
+        public ProductionService(ProductionFactory factory, ISubscriber<IEntity> entitySubscriber)
         {
             this.factory = factory;
+            var bag = DisposableBag.CreateBuilder();
+
+            entitySubscriber.Subscribe(x => ProductionCreated(x as Production.Production), x => x is Production.Production)
+                            .AddTo(bag);
+
+            disposable = bag.Build();
+        }
+        void ProductionCreated(Production.Production production)
+        {
+            Debug.Log(production.Data.name);
         }
 
-        public void Initialize()
+        void IDisposable.Dispose()
         {
-
-            ProductionMarker[] productionMarkers = Resources.FindObjectsOfTypeAll<ProductionMarker>();
-            for (int i = 0; i < productionMarkers.Length; i++)
-            {
-                ProductionMarker marker = productionMarkers[i];
-                Production.Production production = factory.Create(marker.Production);
-                productions.Add(production);
-
-                ProductionObject productionObject = factory.CreateObject(production);
-
-                productionObject.transform.SetParent(marker.transform.parent);
-                productionObject.transform.SetPositionAndRotation(marker.transform.position, marker.transform.rotation);
-            }
+            disposable?.Dispose();
         }
     }
 }

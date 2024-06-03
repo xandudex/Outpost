@@ -1,3 +1,5 @@
+using MessagePipe;
+using MysteryFoxes.Outpost.Constructions;
 using MysteryFoxes.Outpost.Items;
 using MysteryFoxes.Outpost.Player;
 using MysteryFoxes.Outpost.Production;
@@ -12,18 +14,34 @@ namespace MysteryFoxes.Outpost
     {
         protected override void Configure(IContainerBuilder builder)
         {
+            RegisterMessagePipe(builder);
             RegisterFactories(builder);
             RegisterServices(builder);
         }
+
+        private void RegisterMessagePipe(IContainerBuilder builder)
+        {
+            MessagePipeOptions options = builder.RegisterMessagePipe(o =>
+            {
+                o.EnableCaptureStackTrace = true;
+            });
+            builder.RegisterBuildCallback(c => GlobalMessagePipe.SetProvider(c.AsServiceProvider()));
+
+            builder.RegisterMessageBroker<IEntity>(options);
+            builder.RegisterMessageBroker<IEntityObject>(options);
+        }
+
         private void RegisterFactories(IContainerBuilder builder)
         {
-            builder.Register<UpgradeFactory>(Lifetime.Singleton);
-            builder.Register<ItemFactory>(Lifetime.Singleton);
-            builder.Register<StorageFactory>(Lifetime.Singleton);
-            builder.Register<ProductionFactory>(Lifetime.Singleton);
-            builder.Register<VendingMachineFactory>(Lifetime.Singleton);
-            builder.Register<PlayerFactory>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<UpgradeFactory>().AsSelf();
+            builder.RegisterEntryPoint<ItemFactory>().AsSelf();
+            builder.RegisterEntryPoint<StorageFactory>().AsSelf();
+            builder.RegisterEntryPoint<ConstructionFactory>().AsSelf();
+            builder.RegisterEntryPoint<ProductionFactory>().AsSelf();
+            builder.RegisterEntryPoint<VendingMachineFactory>().AsSelf();
+            builder.RegisterEntryPoint<PlayerFactory>().AsSelf();
         }
+
         private void RegisterServices(IContainerBuilder builder)
         {
         }

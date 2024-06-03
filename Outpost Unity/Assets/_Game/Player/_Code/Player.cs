@@ -2,7 +2,7 @@ using MysteryFoxes.Outpost.Storages;
 
 namespace MysteryFoxes.Outpost.Player
 {
-    internal class Player
+    internal class Player : IEntity
     {
         readonly PlayerSO data;
 
