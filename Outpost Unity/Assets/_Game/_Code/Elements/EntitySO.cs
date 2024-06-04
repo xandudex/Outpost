@@ -2,7 +2,7 @@
 
 namespace MysteryFoxes.Outpost
 {
-    internal abstract class EntitySO : ScriptableObject
+    internal abstract class EntitySO : ScriptableObject, IEntityData
     {
         [SerializeField]
         GameObject prefab;

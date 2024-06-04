@@ -1,24 +1,23 @@
-﻿using MysteryFoxes.Outpost.Interactable;
-using MysteryFoxes.Outpost.Storages;
+﻿using MysteryFoxes.Outpost.Storages;
 using UnityEngine;
 using VContainer;
 
 namespace MysteryFoxes.Outpost.Player
 {
-    internal class PlayerObject : MonoBehaviour, IConstructor
+    internal class PlayerObject : MonoBehaviour, IEntityObject, IConstructor
     {
         [SerializeField]
         StorageObject hands;
 
-        Player data;
+        Player model;
 
         [Inject]
-        void Construct(Player data)
+        void Construct(Player model)
         {
-            this.data = data;
+            this.model = model;
         }
 
-        public Player Data => data;
+        public Player Data => model;
 
     }
 }

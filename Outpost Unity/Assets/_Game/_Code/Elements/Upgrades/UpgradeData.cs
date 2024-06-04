@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MysteryFoxes.Outpost
 {
     [Serializable]
-    internal class UpgradeData<T>
+    internal class UpgradeData<T> : IEntityData
     {
         [SerializeField]
         T[] values;
