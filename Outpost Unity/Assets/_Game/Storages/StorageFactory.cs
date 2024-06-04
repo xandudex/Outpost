@@ -2,7 +2,7 @@
 
 namespace MysteryFoxes.Outpost.Storages
 {
-    internal class StorageFactory : IEntityFactory<StorageData, Storage>
+    internal class StorageFactory : IEntityFactory<StorageData, StorageModel>
     {
         readonly UpgradeFactory upgradeFactory;
         readonly IPublisher<IEntity> entityPublisher;
@@ -13,9 +13,9 @@ namespace MysteryFoxes.Outpost.Storages
             this.entityPublisher = entityPublisher;
         }
 
-        public Storage Create(StorageData data)
+        public StorageModel Create(StorageData data)
         {
-            Storage storage = new Storage(data, data.Storable, upgradeFactory.Create(data.Capacity));
+            StorageModel storage = new StorageModel(data, data.Storable, upgradeFactory.Create(data.Capacity));
 
             entityPublisher.Publish(storage);
 

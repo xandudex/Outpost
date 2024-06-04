@@ -1,5 +1,5 @@
 ﻿using MessagePipe;
-using MysteryFoxes.Outpost.Production;
+using MysteryFoxes.Outpost.Productions;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +8,7 @@ namespace MysteryFoxes.Outpost.Services
 {
     internal class ProductionService : IProductionService, IDisposable
     {
-        List<Production.Production> productions = new();
+        List<Productions.ProductionModel> productions = new();
 
         IDisposable disposable;
 
@@ -19,12 +19,12 @@ namespace MysteryFoxes.Outpost.Services
             this.factory = factory;
             var bag = DisposableBag.CreateBuilder();
 
-            entitySubscriber.Subscribe(x => ProductionCreated(x as Production.Production), x => x is Production.Production)
+            entitySubscriber.Subscribe(x => ProductionCreated(x as Productions.ProductionModel), x => x is Productions.ProductionModel)
                             .AddTo(bag);
 
             disposable = bag.Build();
         }
-        void ProductionCreated(Production.Production production)
+        void ProductionCreated(Productions.ProductionModel production)
         {
             Debug.Log(production.Data.name);
         }

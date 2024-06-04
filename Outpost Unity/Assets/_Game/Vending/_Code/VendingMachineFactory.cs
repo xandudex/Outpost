@@ -1,38 +1,30 @@
 ﻿using MessagePipe;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
 namespace MysteryFoxes.Outpost.Vending
 {
-    internal class VendingMachineFactory : IEntityFactory<VendingMachineSO, VendingMachine>, IEntityObjectFactory<VendingMachine, VendingMachineObject>
+    internal class VendingMachineFactory
     {
         readonly LifetimeScope scope;
-        readonly IPublisher<IEntity> entityPublisher;
-        readonly IPublisher<IEntityObject> entityObjectPublisher;
+        readonly IPublisher<VendingMachine> vendingPublisher;
 
-        public VendingMachineFactory(LifetimeScope scope, IPublisher<IEntity> entityPublisher, IPublisher<IEntityObject> entityObjectPublisher)
+        public VendingMachineFactory(LifetimeScope scope, IPublisher<VendingMachine> vendingPublisher)
         {
             this.scope = scope;
-            this.entityPublisher = entityPublisher;
-            this.entityObjectPublisher = entityObjectPublisher;
+            this.vendingPublisher = vendingPublisher;
         }
 
-        public VendingMachine Create(VendingMachineSO data)
+        public VendingMachine Create(VendingMachineConfig data, Transform parent, Vector3 pos, Quaternion rot)
         {
-            VendingMachine vendingMachine = new VendingMachine(data);
+            VendingMachineModel vendingMachine = new VendingMachineModel(data);
 
-            entityPublisher.Publish(vendingMachine);
+            VendingMachine vendingMachineObject = scope.CreateChild(x => x.RegisterInstance(vendingMachine)).Container
+                                                       .Instantiate(vendingMachine.Data.Prefab, pos, rot, parent)
+                                                       .GetComponent<VendingMachine>();
 
-            return vendingMachine;
-        }
-
-        public VendingMachineObject Create(VendingMachine vendingMachine)
-        {
-            VendingMachineObject vendingMachineObject = scope.CreateChild(x => x.RegisterInstance(vendingMachine)).Container
-                        .Instantiate(vendingMachine.Data.Prefab)
-                        .GetComponent<VendingMachineObject>();
-
-            entityObjectPublisher.Publish(vendingMachineObject);
+            vendingPublisher.Publish(vendingMachineObject);
 
             return vendingMachineObject;
         }

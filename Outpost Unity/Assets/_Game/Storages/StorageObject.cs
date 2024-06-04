@@ -3,16 +3,16 @@ using VContainer;
 
 namespace MysteryFoxes.Outpost.Storages
 {
-    internal class StorageObject : MonoBehaviour, IEntityObject
+    internal class Storage : MonoBehaviour, IEntityObject
     {
-        Storage storage;
+        StorageModel model;
 
         [Inject]
-        void Construct(Storage storage)
+        void Construct(StorageModel model)
         {
-            this.storage = storage;
+            this.model = model;
         }
 
-        public Storage Storage => storage;
+        public StorageModel Model => model;
     }
 }

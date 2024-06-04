@@ -1,16 +1,25 @@
-using MysteryFoxes.Outpost.Storages;
+﻿using MysteryFoxes.Outpost.Storages;
+using System.Collections.Generic;
+using UnityEngine;
+using VContainer;
 
 namespace MysteryFoxes.Outpost.Player
 {
-    internal class Player : IEntity
+    internal class Player : MonoBehaviour, IConstructor
     {
-        readonly PlayerSO data;
+        [SerializeField]
+        Storage hands;
 
-        public Player(PlayerSO data, Storage wallet, Storage hands)
+        PlayerModel model;
+
+        [Inject]
+        void Construct(PlayerModel model)
         {
-            this.data = data;
+            this.model = model;
         }
 
-        public PlayerSO Data => data;
+        public PlayerModel Model => model;
+
+        IReadOnlyList<StorageModel> IConstructor.Storages => new List<StorageModel>() { model.Hands, model.Wallet };
     }
 }

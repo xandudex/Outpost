@@ -5,38 +5,30 @@ using VContainer.Unity;
 
 namespace MysteryFoxes.Outpost.Player
 {
-    internal class PlayerFactory : IEntityFactory<PlayerSO, Player>, IEntityObjectFactory<Player, PlayerObject>
+    internal class PlayerFactory
     {
         readonly StorageFactory storageFactory;
-        readonly IBufferedPublisher<IEntity> entityPublisher;
-        readonly IBufferedPublisher<IEntityObject> entityObjectPublisher;
+        readonly IBufferedPublisher<Player> playerPublisher;
         readonly LifetimeScope scope;
-        public PlayerFactory(LifetimeScope scope, StorageFactory storageFactory, IBufferedPublisher<IEntity> entityPublisher, IBufferedPublisher<IEntityObject> entityObjectPublisher)
+        public PlayerFactory(LifetimeScope scope, StorageFactory storageFactory, IBufferedPublisher<Player> playerPublisher)
         {
             this.scope = scope;
             this.storageFactory = storageFactory;
-            this.entityPublisher = entityPublisher;
-            this.entityObjectPublisher = entityObjectPublisher;
+            this.playerPublisher = playerPublisher;
         }
 
-        public Player Create(PlayerSO data)
+        public Player Create(PlayerConfig data)
         {
-            Storage wallet = storageFactory.Create(data.WalletData);
-            Storage hands = storageFactory.Create(data.HandsData);
-            Player player = new Player(data, wallet, hands);
+            StorageModel wallet = storageFactory.Create(data.WalletData);
+            StorageModel hands = storageFactory.Create(data.HandsData);
 
-            entityPublisher.Publish(player);
+            PlayerModel player = new PlayerModel(data, wallet, hands);
 
-            return player;
-        }
-
-        public PlayerObject Create(Player player)
-        {
-            PlayerObject playerObject = scope.CreateChild(x => x.RegisterInstance(player)).Container
+            Player playerObject = scope.CreateChild(x => x.RegisterInstance(player)).Container
                         .Instantiate(player.Data.Prefab)
-                        .GetComponent<PlayerObject>();
+                        .GetComponent<Player>();
 
-            entityObjectPublisher.Publish(playerObject);
+            playerPublisher.Publish(playerObject);
 
             return playerObject;
         }

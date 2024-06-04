@@ -1,4 +1,6 @@
 using MysteryFoxes.Outpost.Services;
+using Unity.Cinemachine;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -6,15 +8,16 @@ namespace MysteryFoxes.Outpost
 {
     public class GameLifetimeScope : LifetimeScope
     {
+        [TagField]
+        [SerializeField]
+        string autoInjectWithTag;
 
         protected override void Configure(IContainerBuilder builder)
         {
             RegisterServices(builder);
             RegisterEntities(builder);
-        }
 
-        private void RegisterEntities(IContainerBuilder builder)
-        {
+            SetupAutoInjection();
         }
 
         private void RegisterServices(IContainerBuilder builder)
@@ -23,6 +26,16 @@ namespace MysteryFoxes.Outpost
             builder.RegisterEntryPoint<ConstructionService>();
         }
 
+        private void RegisterEntities(IContainerBuilder builder)
+        {
 
+        }
+
+        private void SetupAutoInjection()
+        {
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(autoInjectWithTag);
+            foreach (var item in gameObjects)
+                autoInjectGameObjects.Add(item);
+        }
     }
 }
