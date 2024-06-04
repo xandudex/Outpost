@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -6889427085835381694, guid: 2553180497633ba4fb78eb569b19110d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 1305222e66fa7e8409e00bcb22d2491e, type: 2}
+      objectReference: {fileID: 2100000, guid: ef029996b7cff944b9767ac3a4a58534, type: 2}
     - target: {fileID: 919132149155446097, guid: 2553180497633ba4fb78eb569b19110d, type: 3}
       propertyPath: m_Name
       value: Chain_fance

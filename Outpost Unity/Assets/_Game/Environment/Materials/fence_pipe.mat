@@ -135,14 +135,14 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Metalic: 0.423
+    - _Metalic: 1
     - _Metallic: 0.486
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 0
-    - _Scale: 0
+    - _Scale: 1
     - _Smoothness: 0.463
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
