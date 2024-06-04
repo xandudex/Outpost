@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0f6e09a7f5bf14c9fe43f24d872456, type: 3}
   m_Name: ClothesProduct
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1272092022809049929, guid: 4acdc3c8f08037a48b28fead5bb357bf, type: 3}
   icon: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e2f655222ae8b41b8635d9181cc4e7, type: 3}
   m_Name: ClothesProduction
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4789482035786768673, guid: 888d69da7cbab654b89b4430cbfcb443, type: 3}
+  prefab: {fileID: 2040307298587518255, guid: ec66e42a0d479a149bb88751f74edcef, type: 3}
   constructionPrefab: {fileID: 579970698375611460, guid: 52229d896321a4d409384e68d1dfb139, type: 3}
   price:
   - Key: {fileID: 11400000, guid: ee49a2e3fcd364c4c8539ea4cbce8efb, type: 2}
