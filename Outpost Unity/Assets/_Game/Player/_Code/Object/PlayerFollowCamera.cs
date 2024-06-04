@@ -15,9 +15,9 @@ namespace MysteryFoxes.Outpost.Player
         IDisposable disposable;
 
         [Inject]
-        void Construct(IBufferedSubscriber<IEntityObject> playerSubscriber)
+        void Construct(IBufferedSubscriber<Player> playerSubscriber)
         {
-            playerSubscriber.Subscribe(PlayerSpawned, x => x is PlayerObject)
+            playerSubscriber.Subscribe(PlayerSpawned)
                             .AddTo(this);
         }
 
@@ -26,10 +26,9 @@ namespace MysteryFoxes.Outpost.Player
             disposable?.Dispose();
         }
 
-        private void PlayerSpawned(IEntityObject entityObject)
+        private void PlayerSpawned(Player player)
         {
-            var playerObject = entityObject as PlayerObject;
-            cam.Target.TrackingTarget = playerObject.transform;
+            cam.Target.TrackingTarget = player.transform;
         }
     }
 }

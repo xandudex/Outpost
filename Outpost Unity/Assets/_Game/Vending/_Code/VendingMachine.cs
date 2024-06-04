@@ -1,14 +1,18 @@
-﻿namespace MysteryFoxes.Outpost.Vending
+﻿using UnityEngine;
+using VContainer;
+
+namespace MysteryFoxes.Outpost.Vending
 {
-    internal partial class VendingMachine
+    internal class VendingMachine : MonoBehaviour, IEntityObject
     {
+        VendingMachineModel model;
 
-        readonly VendingMachineSO data;
-
-        public VendingMachine(VendingMachineSO data)
+        [Inject]
+        void Construct(VendingMachineModel model)
         {
-            this.data = data;
+            this.model = model;
         }
-        public VendingMachineSO Data => data;
+
+        public VendingMachineModel Model => model;
     }
 }

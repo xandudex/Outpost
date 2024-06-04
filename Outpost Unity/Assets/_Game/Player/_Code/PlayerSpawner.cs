@@ -9,21 +9,19 @@ namespace MysteryFoxes.Outpost.Player
         Transform playerMarker;
 
         [SerializeField]
-        PlayerSO playerData;
+        PlayerConfig playerData;
 
         PlayerFactory playerFactory;
+
         [Inject]
         void Construct(PlayerFactory playerFactory)
         {
             this.playerFactory = playerFactory;
-
-            Spawn();
         }
 
-        private void Spawn()
+        private void Start()
         {
-            Player player = playerFactory.Create(playerData);
-            PlayerObject playerObject = playerFactory.Create(player);
+            Player playerObject = playerFactory.Create(playerData);
 
             playerObject.transform.SetParent(playerMarker.parent);
             playerObject.transform.SetPositionAndRotation(playerMarker.position, playerMarker.rotation);

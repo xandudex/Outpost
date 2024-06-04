@@ -1,18 +1,24 @@
-﻿using MysteryFoxes.Outpost.Storages;
+﻿using DG.Tweening;
+using UnityEngine;
+using VContainer;
 
-namespace MysteryFoxes.Outpost.Production
+namespace MysteryFoxes.Outpost.Productions
 {
-    internal partial class Production : IEntity
+    internal class Production : MonoBehaviour
     {
-        Storage storage;
+        ProductionModel model;
 
-        ProductionSO data;
-        private Production(ProductionSO data, Storage storage)
+        [Inject]
+        void Construct(ProductionModel model)
         {
-            this.data = data;
+            this.model = model;
         }
 
-        public Storage Storage => storage;
-        public ProductionSO Data => data;
+        private void Start()
+        {
+            transform.DOScale(Vector3.one, 0.5f).From(0).SetEase(Ease.OutBack);
+        }
+
+        public ProductionModel Model => model;
     }
 }

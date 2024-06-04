@@ -1,39 +1,30 @@
 ﻿using MessagePipe;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace MysteryFoxes.Outpost.Production
+namespace MysteryFoxes.Outpost.Productions
 {
-    internal class ProductionFactory : IEntityFactory<ProductionSO, Production>, IEntityObjectFactory<Production, ProductionObject>
+    internal class ProductionFactory
     {
         readonly LifetimeScope scope;
-        readonly IPublisher<IEntity> entityPublisher;
-        readonly IPublisher<IEntityObject> entityObjectPublisher;
+        readonly IPublisher<Production> productionPublisher;
 
-        public ProductionFactory(LifetimeScope scope, IPublisher<IEntity> entityPublisher, IPublisher<IEntityObject> entityObjectPublisher)
+        public ProductionFactory(LifetimeScope scope, IPublisher<Production> productionPublisher)
         {
             this.scope = scope;
-            this.entityPublisher = entityPublisher;
-            this.entityObjectPublisher = entityObjectPublisher;
+            this.productionPublisher = productionPublisher;
         }
 
-        public Production Create(ProductionSO productionData)
+        public Production Create(ProductionConfig productionData, Transform parent, Vector3 pos, Quaternion rot)
         {
-            Production.Builder builder = new Production.Builder(productionData);
-            Production production = builder.Build();
+            ProductionModel production = new ProductionModel.Builder(productionData).Build();
 
-            entityPublisher.Publish(production);
+            Production productionObject = scope.CreateChild(x => x.RegisterInstance(production)).Container
+                        .Instantiate(production.Data.Prefab, pos, rot, parent)
+                        .GetComponent<Production>();
 
-            return production;
-        }
-
-        public ProductionObject Create(Production production)
-        {
-            ProductionObject productionObject = scope.CreateChild(x => x.RegisterInstance(production)).Container
-                        .Instantiate(production.Data.Prefab)
-                        .GetComponent<ProductionObject>();
-
-            entityObjectPublisher.Publish(productionObject);
+            productionPublisher.Publish(productionObject);
 
             return productionObject;
         }

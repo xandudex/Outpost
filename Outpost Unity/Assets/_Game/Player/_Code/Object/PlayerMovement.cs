@@ -6,7 +6,7 @@ namespace MysteryFoxes.Outpost.Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField]
-        Player player;
+        PlayerModel player;
 
         [SerializeField]
         InputActionReference moveAction;

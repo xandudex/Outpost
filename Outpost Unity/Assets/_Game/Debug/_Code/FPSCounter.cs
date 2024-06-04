@@ -5,6 +5,8 @@ namespace Game
 {
     public class FPSCounter : MonoBehaviour
     {
+        private const string fpsVisualElementName = "fps";
+
         [SerializeField]
         UIDocument document;
 
@@ -14,7 +16,7 @@ namespace Game
 
         private void Awake()
         {
-            label = document.rootVisualElement.Q<Label>("fps");
+            label = document.rootVisualElement.Q<Label>(fpsVisualElementName);
         }
 
         private void Update()

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4429040486250986841, guid: 7dc31ca4aa2f0a241a9f68aa05d975dc, type: 3}
   walletData:
-    storable: []
+    storable:
+    - {fileID: 11400000, guid: ee49a2e3fcd364c4c8539ea4cbce8efb, type: 2}
     capacity:
-      values: 00000000
+      values: 40420f00
       cost: []
   handsData:
     storable: []

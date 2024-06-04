@@ -1,4 +1,5 @@
 ﻿using MessagePipe;
+using System;
 using VContainer;
 using VContainer.Unity;
 
@@ -7,22 +8,23 @@ namespace MysteryFoxes.Outpost.Constructions
     internal class ConstructionFactory
     {
         private readonly LifetimeScope lifetimeScope;
-        private readonly IPublisher<IEntity> entityPublisher;
+        private readonly IPublisher<Construction> constructionPublisher;
 
-        public ConstructionFactory(LifetimeScope lifetimeScope, IPublisher<IEntity> entityPublisher)
+        public ConstructionFactory(LifetimeScope lifetimeScope, IPublisher<Construction> constructionPublisher)
         {
             this.lifetimeScope = lifetimeScope;
-            this.entityPublisher = entityPublisher;
+            this.constructionPublisher = constructionPublisher;
         }
 
-        public Construction Create(ConstructionObject constructionObject)
+        public Construction Create(ConstructionConfig data, Guid guid)
         {
-            Construction construction = new Construction(constructionObject.Guid, constructionObject.Data);
+            ConstructionModel model = new ConstructionModel(guid, data);
 
-            lifetimeScope.CreateChild(x => x.RegisterInstance(construction)).Container
-                         .InjectGameObject(constructionObject.gameObject);
+            Construction construction = lifetimeScope.CreateChild(x => x.RegisterInstance(model)).Container
+                                                     .Instantiate((data as IConstructionData).Prefab)
+                                                     .GetComponent<Construction>();
 
-            entityPublisher.Publish(construction);
+            constructionPublisher.Publish(construction);
 
             return construction;
         }

@@ -2,7 +2,7 @@ using MessagePipe;
 using MysteryFoxes.Outpost.Constructions;
 using MysteryFoxes.Outpost.Items;
 using MysteryFoxes.Outpost.Player;
-using MysteryFoxes.Outpost.Production;
+using MysteryFoxes.Outpost.Productions;
 using MysteryFoxes.Outpost.Storages;
 using MysteryFoxes.Outpost.Vending;
 using VContainer;
@@ -27,8 +27,9 @@ namespace MysteryFoxes.Outpost
             });
             builder.RegisterBuildCallback(c => GlobalMessagePipe.SetProvider(c.AsServiceProvider()));
 
-            builder.RegisterMessageBroker<IEntity>(options);
-            builder.RegisterMessageBroker<IEntityObject>(options);
+            builder.RegisterMessageBroker<Player.Player>(options);
+            builder.RegisterMessageBroker<Production>(options);
+            builder.RegisterMessageBroker<Construction>(options);
         }
 
         private void RegisterFactories(IContainerBuilder builder)
