@@ -54,6 +54,14 @@
       },
       "url": "https://npm.pkg.github.com/@xandudex"
     },
+    "com.mysteryfoxes.systems.ui": {
+      "version": "file:MysteryFoxes.System.UI",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.mysteryfoxes.dependencies": "0.1.5"
+      }
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

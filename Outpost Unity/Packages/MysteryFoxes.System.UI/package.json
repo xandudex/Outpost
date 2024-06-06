@@ -1,0 +1,16 @@
+{
+  "name": "com.mysteryfoxes.systems.ui",
+  "version": "0.0.1",
+  "displayName": "Systems: UI",
+  "description": "Has all for handling ui panels, menus, etc.",
+  "unity": "2023.1",
+  "dependencies": {
+    "com.mysteryfoxes.dependencies": "0.1.5"
+  },
+  "author": {
+    "name": "Mystery Foxes"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@xandudex"
+  }
+}

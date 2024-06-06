@@ -1,0 +1,14 @@
+{
+    "name": "MysteryFoxes.Systems.UI.Editor",
+    "rootNamespace": "MysteryFoxes.Systems.UI.Editor",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

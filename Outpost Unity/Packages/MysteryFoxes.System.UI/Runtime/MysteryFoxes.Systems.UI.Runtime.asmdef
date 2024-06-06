@@ -1,0 +1,14 @@
+{
+    "name": "MysteryFoxes.Systems.UI.Runtime",
+    "rootNamespace": "MysteryFoxes.Systems.UI",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,4 +1,5 @@
 using MysteryFoxes.Outpost.Services;
+using MysteryFoxes.Systems.UI;
 using Unity.Cinemachine;
 using UnityEngine;
 using VContainer;
@@ -22,6 +23,7 @@ namespace MysteryFoxes.Outpost
 
         private void RegisterServices(IContainerBuilder builder)
         {
+            builder.RegisterEntryPoint<PanelService>();
             builder.RegisterEntryPoint<ProductionService>();
             builder.RegisterEntryPoint<ConstructionService>();
         }
