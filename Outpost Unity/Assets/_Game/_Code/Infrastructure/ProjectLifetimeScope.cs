@@ -1,10 +1,14 @@
 using MessagePipe;
+using MysteryFoxes.Global.Services;
+using MysteryFoxes.Global.Services.Ads;
+using MysteryFoxes.Global.Services.Analytics;
 using MysteryFoxes.Outpost.Constructions;
 using MysteryFoxes.Outpost.Items;
 using MysteryFoxes.Outpost.Player;
 using MysteryFoxes.Outpost.Productions;
 using MysteryFoxes.Outpost.Storages;
 using MysteryFoxes.Outpost.Vending;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -14,6 +18,7 @@ namespace MysteryFoxes.Outpost
     {
         protected override void Configure(IContainerBuilder builder)
         {
+            Application.targetFrameRate = 60;
             RegisterMessagePipe(builder);
             RegisterFactories(builder);
             RegisterServices(builder);
@@ -45,6 +50,9 @@ namespace MysteryFoxes.Outpost
 
         private void RegisterServices(IContainerBuilder builder)
         {
+            builder.RegisterEntryPoint<AdsService>();
+            builder.RegisterEntryPoint<AnalyticsService>();
+            builder.RegisterEntryPoint<SceneLoader>();
         }
     }
 }

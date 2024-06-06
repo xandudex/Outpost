@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 13964, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnablePreReleasePackages: 0
+  m_EnablePreReleasePackages: 1
   m_AdvancedSettingsExpanded: 1
   m_ScopedRegistriesSettingsExpanded: 1
   m_SeeAllPackageVersions: 0
   m_DismissPreviewPackagesInUse: 0
-  oneTimeWarningShown: 0
+  oneTimeWarningShown: 1
   oneTimeDeprecatedPopUpShown: 0
   m_Registries:
   - m_Id: main
@@ -27,11 +27,30 @@ MonoBehaviour:
     m_IsDefault: 1
     m_Capabilities: 7
     m_ConfigSource: 0
+  - m_Id: scoped:project:Nuget
+    m_Name: Nuget
+    m_Url: https://unitynuget-registry.azurewebsites.net
+    m_Scopes:
+    - org.nuget
+    m_IsDefault: 0
+    m_Capabilities: 0
+    m_ConfigSource: 4
   - m_Id: scoped:project:OpenUPM
     m_Name: OpenUPM
     m_Url: https://package.openupm.com
     m_Scopes:
-    - com.brunomikoski
+    - com.github-glitchenzo
+    - com.cysharp
+    - jp.hadashikick.vcontainer
+    - com.openupm
+    m_IsDefault: 0
+    m_Capabilities: 0
+    m_ConfigSource: 4
+  - m_Id: scoped:project:Mystery Foxes
+    m_Name: Mystery Foxes
+    m_Url: https://npm.pkg.github.com/@xandudex
+    m_Scopes:
+    - com.mysteryfoxes
     m_IsDefault: 0
     m_Capabilities: 0
     m_ConfigSource: 4

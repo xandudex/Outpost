@@ -1,41 +1,58 @@
 {
   "dependencies": {
     "com.cysharp.messagepipe": {
-      "version": "https://github.com/Cysharp/MessagePipe.git?path=src/MessagePipe.Unity/Assets/Plugins/MessagePipe",
-      "depth": 0,
-      "source": "git",
+      "version": "1.8.1",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {},
-      "hash": "10cc1a25545b8b4e2687e46f64bfbedb331e7882"
+      "url": "https://package.openupm.com"
     },
     "com.cysharp.messagepipe.vcontainer": {
-      "version": "https://github.com/Cysharp/MessagePipe.git?path=src/MessagePipe.Unity/Assets/Plugins/MessagePipe.VContainer",
-      "depth": 0,
-      "source": "git",
+      "version": "1.8.1",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {},
-      "hash": "10cc1a25545b8b4e2687e46f64bfbedb331e7882"
+      "url": "https://package.openupm.com"
     },
     "com.cysharp.r3": {
-      "version": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity",
-      "depth": 0,
-      "source": "git",
+      "version": "1.1.12",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
         "com.unity.modules.imgui": "1.0.0"
       },
-      "hash": "d0ee86f6bb8b7e2809f1dd317c62d5d610356c92"
+      "url": "https://package.openupm.com"
     },
     "com.cysharp.unitask": {
-      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
-      "depth": 0,
-      "source": "git",
+      "version": "2.5.4",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {},
-      "hash": "fbe0bf85155f42f8832205f7b3ac3df571ada33e"
+      "url": "https://package.openupm.com"
     },
     "com.github-glitchenzo.nugetforunity": {
-      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
-      "depth": 0,
-      "source": "git",
+      "version": "4.1.1",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {},
-      "hash": "e74a84218512a229aac65488404a7a412cb86fa4"
+      "url": "https://package.openupm.com"
+    },
+    "com.mysteryfoxes.dependencies": {
+      "version": "0.1.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.cysharp.messagepipe": "1.8.1",
+        "com.cysharp.messagepipe.vcontainer": "1.8.1",
+        "com.cysharp.r3": "1.1.12",
+        "com.cysharp.unitask": "2.5.4",
+        "com.github-glitchenzo.nugetforunity": "4.1.1",
+        "jp.hadashikick.vcontainer": "1.15.4",
+        "org.nuget.observablecollections": "2.1.2",
+        "org.nuget.observablecollections.r3": "2.1.2",
+        "org.nuget.r3": "1.1.12"
+      },
+      "url": "https://npm.pkg.github.com/@xandudex"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -285,11 +302,119 @@
       }
     },
     "jp.hadashikick.vcontainer": {
-      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer",
-      "depth": 0,
-      "source": "git",
+      "version": "1.15.4",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {},
-      "hash": "1f611aa8b770ffc1697fbe3a67366734eb9584fa"
+      "url": "https://package.openupm.com"
+    },
+    "org.nuget.microsoft.bcl.asyncinterfaces": {
+      "version": "6.0.0",
+      "depth": 3,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.system.threading.tasks.extensions": "4.5.4"
+      },
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.microsoft.bcl.timeprovider": {
+      "version": "8.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.microsoft.bcl.asyncinterfaces": "6.0.0"
+      },
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.observablecollections": {
+      "version": "2.1.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.system.memory": "4.5.4"
+      },
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.observablecollections.r3": {
+      "version": "2.1.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.observablecollections": "2.1.2",
+        "org.nuget.r3": "1.0.0"
+      },
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.r3": {
+      "version": "1.1.12",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.microsoft.bcl.timeprovider": "8.0.0",
+        "org.nuget.system.buffers": "4.5.1",
+        "org.nuget.system.componentmodel.annotations": "5.0.0",
+        "org.nuget.system.memory": "4.5.5",
+        "org.nuget.system.runtime.compilerservices.unsafe": "6.0.0",
+        "org.nuget.system.threading.channels": "8.0.0"
+      },
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.system.buffers": {
+      "version": "4.5.1",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.system.componentmodel.annotations": {
+      "version": "5.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.system.memory": {
+      "version": "4.5.5",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.system.buffers": "4.5.1",
+        "org.nuget.system.numerics.vectors": "4.4.0",
+        "org.nuget.system.runtime.compilerservices.unsafe": "4.5.3"
+      },
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.system.numerics.vectors": {
+      "version": "4.4.0",
+      "depth": 3,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.system.runtime.compilerservices.unsafe": {
+      "version": "6.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.system.threading.channels": {
+      "version": "8.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.system.threading.tasks.extensions": "4.5.4"
+      },
+      "url": "https://unitynuget-registry.azurewebsites.net"
+    },
+    "org.nuget.system.threading.tasks.extensions": {
+      "version": "4.5.4",
+      "depth": 3,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.system.runtime.compilerservices.unsafe": "4.5.3"
+      },
+      "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

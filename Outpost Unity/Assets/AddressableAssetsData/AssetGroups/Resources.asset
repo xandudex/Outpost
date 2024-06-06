@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Resources
+  m_EditorClassIdentifier: 
+  m_GroupName: Resources
+  m_GUID: 16680f7e52599854c94fb5c7f9cb0063
+  m_SerializeEntries:
+  - m_GUID: 033dc66113761c84c97430739c316c89
+    m_Address: Assets/_Game/Gameplay/Productions/MedicineProduction.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - production
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b0d1c363f8a1da45be336be32886de3
+    m_Address: Assets/_Game/Gameplay/Productions/WeaponProduction.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - production
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53ee87e0f834ff141a05e480e67bcbf3
+    m_Address: Assets/_Game/Gameplay/Productions/ClothesProduction.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - production
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73a95b6f25cfe7743b02857895253a00
+    m_Address: Assets/_Game/Gameplay/Items/Products/WeaponProduct.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 833339b3eef3d9f4c9389376e6c61bd7
+    m_Address: Assets/_Game/Gameplay/Items/Products/MedicineProduct.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84e632162a32abd4fa5c88d05901bd13
+    m_Address: Assets/_Game/Gameplay/Items/Products/ClothesProduct.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab78d7ce9a0094d4fb35321d2d879ec8
+    m_Address: Assets/_Game/Gameplay/Productions/FoodProduction.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - production
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6104092980d08a459c56c1b796bc9aa
+    m_Address: Assets/_Game/Gameplay/Items/Products/FoodProduct.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - item
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 01f8ad021ac18964ab95a079a36f2720, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 29ec1531fe8a61d46bb9a54760941533, type: 2}
+    - {fileID: 11400000, guid: 021cd3f9ec4cef64b998ae2d6d0a2ba1, type: 2}

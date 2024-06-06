@@ -1,0 +1,2 @@
+C:\Users\romag\source\repos\Unity Games\Outpost\Outpost Unity\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\romag\source\repos\Unity Games\Outpost\Outpost Unity\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
