@@ -2,6 +2,6 @@
 {
     public interface ICommonPanel : IPanel
     {
-        internal void Show();
+        internal void Open();
     }
 }

@@ -1,17 +1,11 @@
-﻿using System.Threading;
-using UnityEngine;
-
-namespace MysteryFoxes.Systems.UI
+﻿namespace MysteryFoxes.Systems.UI
 {
     public interface IPanel
     {
         PanelType PanelType { get; }
-        bool IsVisible { get; internal set; }
-        bool InFocus { get; internal set; }
+        bool IsVisible { get; }
 
-        internal void Hide();
+        internal void Close();
 
-        internal Awaitable ShowAsync(CancellationToken cancellationToken = default);
-        internal Awaitable HideAsync(CancellationToken cancellationToken = default);
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IPayloadedPanel<T> : IPanel
     {
-        internal void Show(T payload);
+        internal void Open(T payload);
     }
 }

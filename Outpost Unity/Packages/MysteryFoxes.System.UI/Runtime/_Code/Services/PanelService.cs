@@ -1,56 +1,69 @@
 ﻿using ObservableCollections;
-using R3;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace MysteryFoxes.Systems.UI
 {
     public class PanelService : IPanelService
     {
-        ReactiveProperty<IPanel> currentMain = new();
-        ObservableList<IPanel> currentAdditiveStack = new();
-        public PanelService()
-        {
+        ObservableList<IPanel> currentShowingStack = new();
 
+        List<IPanel> stack = new();
+
+        public PanelService(PanelSettings panelSettings)
+        {
+            SetupPanels(panelSettings);
         }
 
-        public ReadOnlyReactiveProperty<IPanel> CurrentMain => currentMain;
+        public IObservableCollection<IPanel> CurrentAdditiveStack => currentShowingStack;
 
-        public IObservableCollection<IPanel> CurrentAdditiveStack => currentAdditiveStack;
-
-        public void Hide(IPanel panel = null)
+        private void SetupPanels(PanelSettings panelSettings)
         {
-            if (!currentAdditiveStack.Contains(panel)) return;
+            foreach (var item in panelSettings.Data)
+            {
+                if (item.NewInstanceEveryTime) continue;
 
-            currentAdditiveStack.Remove(panel);
-
-            panel.Hide();
+                PanelBase instance = GameObject.Instantiate(item.PanelPrefab);
+                stack.Add(instance);
+            }
         }
-
-        public void HideAll()
-        {
-            currentAdditiveStack.ForEach(x => x.Hide());
-        }
-
-        public void Show(ICommonPanel panel, IPanel afterPanel = null)
+        public void Open(string id) { }
+        public void Open<T>(string id, T payload) { }
+        public void Open(ICommonPanel panel, IPanel afterPanel = null)
         {
             AddToStack(panel, afterPanel);
-            panel.Show();
+            panel.Open();
         }
 
-        public void Show<K>(IPayloadedPanel<K> panel, K payload, IPanel afterPanel = null)
+        public void Open<K>(IPayloadedPanel<K> panel, K payload, IPanel afterPanel = null)
         {
             AddToStack(panel, afterPanel);
-            panel.Show(payload);
+            panel.Open(payload);
+        }
+
+        public void Close(IPanel panel)
+        {
+            if (!currentShowingStack.Contains(panel)) return;
+
+            currentShowingStack.Remove(panel);
+
+            panel.Close();
+        }
+
+        public void CloseAll()
+        {
+            currentShowingStack.ForEach(x => x.Close());
         }
 
         void AddToStack(IPanel panel, IPanel afterPanel = null)
         {
-            if (afterPanel != null && currentAdditiveStack.Contains(afterPanel))
+            if (afterPanel != null && currentShowingStack.Contains(afterPanel))
             {
-                int index = currentAdditiveStack.IndexOf(afterPanel);
-                currentAdditiveStack.Insert(index, panel);
+                int index = currentShowingStack.IndexOf(afterPanel);
+                currentShowingStack.Insert(index, panel);
             }
             else
-                currentAdditiveStack.Add(panel);
+                currentShowingStack.Add(panel);
         }
     }
 }
