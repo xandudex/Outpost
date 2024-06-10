@@ -476,6 +476,138 @@
             ]
         },
         {
+            "name": "Car",
+            "id": "e9c1d17f-a705-432d-8623-8202991b1608",
+            "actions": [
+                {
+                    "name": "Gas",
+                    "type": "Button",
+                    "id": "1510a3b3-eb95-4297-be87-6974d8937aef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Reverse",
+                    "type": "Button",
+                    "id": "187182ff-f3ec-468f-a0d7-b51efa1fa396",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HandBreak",
+                    "type": "Button",
+                    "id": "aed2a6d4-baf9-4c7a-b797-54909be32b37",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Turn",
+                    "type": "Value",
+                    "id": "cf2e0f58-8382-44ec-93f9-9347e602a614",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7d8b4534-0ef7-4ce1-90f7-4d348450ede1",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Gas",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2702aac0-22d2-4736-8c20-5adfc6b4c0c8",
+                    "path": "<Joystick>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gas",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5d55377-b0b0-4eba-97aa-6c29906f72f9",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Reverse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84d326d2-d2a3-45c5-a3ef-933f23f1ad40",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "HandBreak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d980684-951b-4250-ab22-0d5384a4472a",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "Normalize(max=-1)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9538c8a3-28d3-4ed9-9133-937a6dcba22e",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "Normalize(max=1)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3dc6604f-2ef3-4092-8642-b0b29cae606e",
+                    "path": "<Joystick>/stick/left",
+                    "interactions": "",
+                    "processors": "Normalize(max=-1)",
+                    "groups": ";Gamepad;Touch",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9806ed71-9464-4dbf-a6ba-3103102cfa69",
+                    "path": "<Joystick>/stick/right",
+                    "interactions": "",
+                    "processors": "Normalize(max=1)",
+                    "groups": ";Gamepad;Touch",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "UI",
             "id": "272f6d14-89ba-496f-b7ff-215263d3219f",
             "actions": [
