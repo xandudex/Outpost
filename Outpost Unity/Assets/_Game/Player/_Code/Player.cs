@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
-
 namespace MysteryFoxes.Outpost.Player
 {
     internal class Player : MonoBehaviour, IConstructor

@@ -1,3 +1,4 @@
+using R3;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +6,9 @@ namespace MysteryFoxes.Outpost.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField]
+        PlayerMount playerMount;
+
         [SerializeField]
         PlayerModel player;
 
@@ -22,15 +26,19 @@ namespace MysteryFoxes.Outpost.Player
         [SerializeField]
         float turnSpeed;
 
+        bool canMove = true;
         new Camera camera;
 
         void Awake()
         {
             camera = Camera.main;
+            playerMount.Mounted.Subscribe(x => canMove = x == null)
+                               .AddTo(this);
         }
-
         private void Update()
         {
+            if (!canMove) return;
+
             Transform cameraTransform = camera.transform;
             Vector3 rotation = cameraTransform.rotation.eulerAngles;
             rotation.x = 0;
