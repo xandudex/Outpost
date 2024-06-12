@@ -7,7 +7,6 @@ namespace MysteryFoxes.Outpost.Player
 {
     internal class PlayerMount : MonoBehaviour
     {
-
         ReactiveProperty<IMountable> mounted = new();
 
         [SerializeField]
@@ -16,9 +15,13 @@ namespace MysteryFoxes.Outpost.Player
         [SerializeField]
         PlayerInteraction playerInteraction;
 
+        Transform initialRootTransform;
+        Rigidbody rb;
         public ReadOnlyReactiveProperty<IMountable> Mounted => mounted;
         private void Awake()
         {
+            rb = GetComponent<Rigidbody>();
+            initialRootTransform = transform.parent;
             playerInteraction.Interactables.ObserveCountChanged()
                                .Subscribe(x => playerInteraction.InteractingWith<IMountable>())
                                .AddTo(this);
@@ -46,6 +49,11 @@ namespace MysteryFoxes.Outpost.Player
 
             mounted.Value = mountable;
             mountable.Mount();
+
+            rb.isKinematic = true;
+            transform.SetParent(mountable.SeatPoint);
+            transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+
             return true;
         }
         public bool Unmount()
@@ -54,6 +62,11 @@ namespace MysteryFoxes.Outpost.Player
                 return false;
 
             mounted.Value.Unmount();
+
+            rb.isKinematic = false;
+            transform.SetParent(initialRootTransform);
+            transform.position = mounted.Value.MountPoint.position;
+
             mounted.Value = null;
             return true;
         }

@@ -1,11 +1,22 @@
 using MysteryFoxes.Outpost.Player;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class VehicleController : MonoBehaviour, IMountable
 {
+    [Header("Mount")]
+
+    [SerializeField]
+    Transform mountPoint;
+
+    [Space(10)]
+    [SerializeField]
+    List<Transform> seats;
+
+    [Space(20)]
     [Header("Input")]
     [SerializeField]
     InputActionReference gasAction;
@@ -138,10 +149,7 @@ public class VehicleController : MonoBehaviour, IMountable
     [SerializeField]
     bool isTractionLocked; // Used to know whether the traction of the car is locked or not.
 
-    [Header("Seats")]
-    [Space(10)]
-    [SerializeField]
-    List<Transform> seats;
+
     //PRIVATE VARIABLES
 
     /*
@@ -179,6 +187,10 @@ public class VehicleController : MonoBehaviour, IMountable
         set => working = value;
     }
     public IReadOnlyList<Transform> Seats => seats;
+
+    public Transform SeatPoint => seats.FirstOrDefault();
+
+    public Transform MountPoint => mountPoint;
 
     void Start()
     {
@@ -259,15 +271,15 @@ public class VehicleController : MonoBehaviour, IMountable
 
     void Update()
     {
+
         carSpeed = (2 * Mathf.PI * frontLeftCollider.radius * frontLeftCollider.rpm * 60) / 1000;
         localVelocityX = transform.InverseTransformDirection(carRigidbody.linearVelocity).x;
         localVelocityZ = transform.InverseTransformDirection(carRigidbody.linearVelocity).z;
 
-        bool handBreakPressed = handBreakAction.action.IsPressed() || !working;
-        bool gasPressed = gasAction.action.IsPressed() && working;
-        bool reversePressed = reverseAction.action.IsPressed() && working;
-        float direction = turnAction.action.ReadValue<float>();
-
+        bool handBreakPressed = !working || handBreakAction.action.IsPressed();
+        bool gasPressed = working && gasAction.action.IsPressed();
+        bool reversePressed = working && reverseAction.action.IsPressed();
+        float direction = working ? turnAction.action.ReadValue<float>() : 0;
 
         if (gasPressed)
         {
