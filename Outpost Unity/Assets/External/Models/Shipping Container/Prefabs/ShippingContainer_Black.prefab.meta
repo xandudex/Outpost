@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c82460f9721fb1343baba2e720e9e36b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 147902
+  packageName: ShippingContainer
+  packageVersion: 1.0
+  assetPath: Assets/Shipping Container/Prefabs/ShippingContainer_Black.prefab
+  uploadId: 315788

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6e22d25120c381545be4ce24dda10e4a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 147902
+  packageName: ShippingContainer
+  packageVersion: 1.0
+  assetPath: Assets/Shipping Container/Prefabs/ShippingContainer_Green.prefab
+  uploadId: 315788

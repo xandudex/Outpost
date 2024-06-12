@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 242801f1e37cb5a46bd3ff474fa8c6ab
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 147902
+  packageName: ShippingContainer
+  packageVersion: 1.0
+  assetPath: Assets/Shipping Container/Model/Materials/ShippingContainer_Doors.mat
+  uploadId: 315788

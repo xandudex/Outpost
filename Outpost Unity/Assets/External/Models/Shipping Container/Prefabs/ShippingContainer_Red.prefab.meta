@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d642fae1f2f83fa42a5b8d8835ebb20b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 147902
+  packageName: ShippingContainer
+  packageVersion: 1.0
+  assetPath: Assets/Shipping Container/Prefabs/ShippingContainer_Red.prefab
+  uploadId: 315788

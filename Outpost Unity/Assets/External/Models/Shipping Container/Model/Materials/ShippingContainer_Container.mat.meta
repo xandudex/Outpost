@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5a8db7ccdb733464ba6329aa475a0558
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 147902
+  packageName: ShippingContainer
+  packageVersion: 1.0
+  assetPath: Assets/Shipping Container/Model/Materials/ShippingContainer_Container.mat
+  uploadId: 315788
