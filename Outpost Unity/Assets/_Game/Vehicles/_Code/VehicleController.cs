@@ -1,21 +1,9 @@
-using MysteryFoxes.Outpost.Player;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class VehicleController : MonoBehaviour, IMountable
+public class VehicleController : MonoBehaviour
 {
-    [Header("Mount")]
-
-    [SerializeField]
-    Transform mountPoint;
-
-    [Space(10)]
-    [SerializeField]
-    List<Transform> seats;
-
     [Space(20)]
     [Header("Input")]
     [SerializeField]
@@ -176,7 +164,7 @@ public class VehicleController : MonoBehaviour, IMountable
     WheelFrictionCurve RRwheelFriction;
     float RRWextremumSlip;
 
-    bool working;
+    bool working = true;
 
     public float Speed => carSpeed;
     public bool IsDrifting => isDrifting;
@@ -186,11 +174,6 @@ public class VehicleController : MonoBehaviour, IMountable
         get => working;
         set => working = value;
     }
-    public IReadOnlyList<Transform> Seats => seats;
-
-    public Transform SeatPoint => seats.FirstOrDefault();
-
-    public Transform MountPoint => mountPoint;
 
     void Start()
     {
@@ -803,15 +786,5 @@ public class VehicleController : MonoBehaviour, IMountable
 
             driftingAxis = 0f;
         }
-    }
-
-    public void Mount()
-    {
-        Working = true;
-    }
-
-    public void Unmount()
-    {
-        Working = false;
     }
 }
